@@ -118,8 +118,13 @@ def output_file():
     shutil.rmtree(out_dir)
 
 
+@pytest.fixture(scope='session')
+def sshd_priv_dir():
+    os.makedir('/run/sshd/', mode='0755')
+
+
 @pytest.fixture
-def pepper_cli(session_salt_api, salt_api_port, output_file, session_sshd_server, pepperrc):
+def pepper_cli(session_salt_api, salt_api_port, output_file, sshd_priv_dir, session_sshd_server, pepperrc):
     '''
     Wrapper to invoke Pepper with common params and inside an empty env
     '''
