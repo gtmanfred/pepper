@@ -81,9 +81,7 @@ def pepperconfig(salt_api_port, pepperrc):
     '''.format(salt_api_port))
     with open(pepperrc, 'w') as pepper_file:
         print(config, file=pepper_file)
-
     yield
-
     os.remove(pepperrc)
 
 
