@@ -3,6 +3,9 @@ pipeline:
     image: python:3.6
     group: build
     commands:
+      - pwd
+      - ls -a
+      - git describe
       - pip install tox
       - tox -e py36
   python35:
