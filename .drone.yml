@@ -1,11 +1,12 @@
+clone:
+  git:
+    image: plugins/git
+    tags: true
 pipeline:
   python36:
     image: python:3.6
     group: build
     commands:
-      - pwd
-      - ls -a
-      - git describe
       - pip install tox
       - tox -e py36
   python35:
