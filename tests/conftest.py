@@ -52,7 +52,7 @@ def salt_api_port():
 
 
 @pytest.fixture(scope='session')
-def pepperconfig(salt_api_port):
+def pepperconfig(salt_api_port, pepperrc):
     config = textwrap.dedent('''
         [main]
         SALTAPI_URL=http://localhost:{0}/
