@@ -118,7 +118,8 @@ def output_file():
 
 @pytest.fixture(scope='session')
 def sshd_priv_dir():
-    os.mkdir('/run/sshd/', mode=0755 if sys.version_info[0] == 2 else 0o755)
+    os.mkdir('/run/sshd/')
+    os.chmod('/run/sshd/', 0755 if sys.version_info[0] == 2 else 0o755)
 
 
 @pytest.fixture
