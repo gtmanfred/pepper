@@ -4,25 +4,25 @@ clone:
     tags: true
 pipeline:
   python36:
-    image: python:3.6
+    image: gtmanfred/python:3.6
     group: build
     commands:
       - pip install tox
       - tox -e py36
   python35:
-    image: python:3.5
+    image: gtmanfred/python:3.5
     group: build
     commands:
       - pip install tox
       - tox -e py35
   python34:
-    image: python:3.4
+    image: gtmanfred/python:3.4
     group: build
     commands:
       - pip install tox
       - tox -e py34
   python27:
-    image: python:2.7
+    image: gtmanfred/python:2.7
     group: build
     commands:
       - pip install tox
