@@ -5,6 +5,7 @@ from __future__ import absolute_import, unicode_literals, print_function
 import logging
 import os.path
 import shutil
+import stat
 import sys
 import tempfile
 import textwrap
@@ -119,7 +120,7 @@ def output_file():
 @pytest.fixture(scope='session')
 def sshd_priv_dir():
     os.mkdir('/run/sshd/')
-    os.chmod('/run/sshd/', 0755 if sys.version_info[0] == 2 else 0o755)
+    os.chmod('/run/sshd/', stat.S_IRWXU | stat.S_IRGRP | stat.S_IXGRP | stat.S_IROTH | stat.S_IXOTH)
 
 
 @pytest.fixture
