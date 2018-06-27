@@ -121,6 +121,8 @@ def output_file():
 def sshd_priv_dir():
     os.mkdir('/run/sshd/')
     os.chmod('/run/sshd/', stat.S_IRWXU | stat.S_IRGRP | stat.S_IXGRP | stat.S_IROTH | stat.S_IXOTH)
+    yield
+    os.rmdir('/run/sshd/')
 
 
 @pytest.fixture
